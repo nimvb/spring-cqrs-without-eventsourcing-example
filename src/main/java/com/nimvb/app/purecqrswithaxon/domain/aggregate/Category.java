@@ -36,6 +36,10 @@ public class Category {
         AggregateLifecycle.markDeleted();
     }
 
+    /**
+     * invoking the command will cause to throw an exception as the aggregate id is going to be changed
+     * @param command
+     */
     @CommandHandler
     @CreationPolicy(AggregateCreationPolicy.CREATE_IF_MISSING)
     public void handle(RenameCategoryCommand command) {
